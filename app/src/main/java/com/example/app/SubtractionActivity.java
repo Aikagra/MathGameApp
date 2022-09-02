@@ -12,6 +12,10 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.Random;
 
 public class SubtractionActivity extends AppCompatActivity {
@@ -19,6 +23,8 @@ public class SubtractionActivity extends AppCompatActivity {
     ImageButton backSub;
     TextView subtraction;
     CardView subtractionCard;
+    private FirebaseDatabase db = FirebaseDatabase.getInstance("https://mathgame-25a50-default-rtdb.asia-southeast1.firebasedatabase.app/");
+    private DatabaseReference reference = db.getReference("Results");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,9 +129,11 @@ public class SubtractionActivity extends AppCompatActivity {
 
         if (ans == get_user_ans){
             tvResult.setText("Correct!");
+            reference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Subtraction").push().setValue("Correct");
         }
         else {
             tvResult.setText("Incorrect!");
+            reference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Subtraction").push().setValue("Incorrect");
         }
 
 

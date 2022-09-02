@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "310439047938",
+    "firebase_url": "https://mathgame-25a50-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "mathgame-25a50",
+    "storage_bucket": "mathgame-25a50.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:310439047938:android:46c244823042a105d4481b",
+        "android_client_info": {
+          "package_name": "com.example.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "310439047938-cbl60csiot0qdrrngc85lp0icrf6fhek.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtXNAPzhne4un63pOpVxqbvaVbxkVWeQc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "310439047938-cbl60csiot0qdrrngc85lp0icrf6fhek.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

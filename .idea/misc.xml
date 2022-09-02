@@ -3,15 +3,26 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/bg_edit_text.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/button_radius.xml" value="0.161" />
         <entry key="app/src/main/res/drawable/custom_rectangle.xml" value="0.2085" />
         <entry key="app/src/main/res/drawable/ic_add.xml" value="0.2085" />
         <entry key="app/src/main/res/drawable/ic_back.xml" value="0.2085" />
-        <entry key="app/src/main/res/drawable/ic_logout.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/ic_logout.xml" value="0.14302301025390624" />
         <entry key="app/src/main/res/drawable/ic_remove.xml" value="0.2085" />
-        <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/drawable/login_bg.xml" value="0.2085" />
+        <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.2543822146216332" />
+        <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.28072916666666664" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.28072916666666664" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_post_list.xml" value="0.2419837537409149" />
+        <entry key="app/src/main/res/layout/activity_result.xml" value="0.2419837537409149" />
+        <entry key="app/src/main/res/layout/activity_result_list.xml" value="0.2419837537409149" />
+        <entry key="app/src/main/res/layout/activity_signup.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_subtraction.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/custom_dialog.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/item_result.xml" value="0.24112868747327917" />
       </map>
     </option>
   </component>

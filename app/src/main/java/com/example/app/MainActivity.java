@@ -12,12 +12,18 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     TextView tvNum1, tvNum2, tvAns, tvResult;
     ImageButton backAdd;
     TextView addition;
+    private FirebaseDatabase db = FirebaseDatabase.getInstance("https://mathgame-25a50-default-rtdb.asia-southeast1.firebasedatabase.app/");
+    private DatabaseReference reference = db.getReference("Results");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,12 +123,13 @@ public class MainActivity extends AppCompatActivity {
         int num2 = Integer.parseInt(tvNum2.getText().toString());
         int ans = num1 + num2;
         int get_user_ans = Integer.parseInt(tvAns.getText().toString());
-
-        if (ans == get_user_ans){
+         if (ans == get_user_ans){
             tvResult.setText("Correct!");
+            reference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Addition").push().setValue("Correct");
         }
         else {
             tvResult.setText("Incorrect!");
+            reference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Addition").push().setValue("Incorrect");
         }
 
 

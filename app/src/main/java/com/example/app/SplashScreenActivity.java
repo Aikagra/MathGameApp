@@ -27,7 +27,7 @@ public class SplashScreenActivity extends AppCompatActivity {
 
                 }
                 finally {
-                    Intent intent = new Intent(SplashScreenActivity.this , DashboardActivity.class);
+                    Intent intent = new Intent(SplashScreenActivity.this , LoginActivity.class);
                     startActivity(intent);
                     finish();
                 }

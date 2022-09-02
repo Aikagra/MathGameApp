@@ -10,10 +10,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class DashboardActivity extends AppCompatActivity {
 
     TextView addition, subtraction;
     CardView additionCard, subtractionCard;
+    private FirebaseAuth mFirebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +27,7 @@ public class DashboardActivity extends AppCompatActivity {
         subtraction = findViewById(R.id.subtractionDashboard);
         additionCard = findViewById(R.id.additionCard);
         subtractionCard = findViewById(R.id.subtractionCard);
+        mFirebaseAuth = FirebaseAuth.getInstance();
 
         additionCard.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +49,15 @@ public class DashboardActivity extends AppCompatActivity {
 
     }
 
-    public void additionGame(View view) {
 
+    public void logout(View view) {
+        mFirebaseAuth.signOut();
+        Intent intent = new Intent(DashboardActivity.this, LoginActivity.class);
+        startActivity(intent);
+    }
+
+    public void result(View view) {
+        Intent intent = new Intent(DashboardActivity.this, ResultListActivity.class);
+        startActivity(intent);
     }
 }
