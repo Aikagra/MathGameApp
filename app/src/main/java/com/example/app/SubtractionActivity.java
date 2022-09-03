@@ -126,38 +126,42 @@ public class SubtractionActivity extends AppCompatActivity {
     }
 
     public void submit(View view) {
+        String tvAnsValue = tvAns.getText().toString();
+        if (tvAnsValue.isEmpty()){
+            tvAns.setText("0");
+        } else {
+            result();
+        }
+
+        }
+
+    private void result() {
         int num1 = Integer.parseInt(tvNum1.getText().toString());
         int num2 = Integer.parseInt(tvNum2.getText().toString());
         int ans = num1 - num2;
         int get_user_ans = Integer.parseInt(tvAns.getText().toString());
+        boolean passed = ans == get_user_ans;
+        DatabaseReference userDoc = reference.child(FirebaseAuth
+                .getInstance().getCurrentUser().getUid());
+        String key = passed ? "incorrect" : "correct";
+        DatabaseReference resultDoc = userDoc.child(key);
 
 
-            boolean passed = ans == get_user_ans;
-            DatabaseReference userDoc = reference.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                    .child("Subtraction");
-            String key = passed ? "correct" : "incorrect";
-            DatabaseReference resultDoc = userDoc.child(key);
+        resultDoc.get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
+            @Override
+            public void onSuccess(DataSnapshot data) {
+                Long currentValue = data.exists() ? data.getValue(Long.class) : 0L;
+                resultDoc.setValue(currentValue + 1);
 
-            resultDoc.get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
-                @Override
-                public void onSuccess(DataSnapshot data) {
-                    Long currentValue = data.exists() ? data.getValue(Long.class) : 0L;
-                  Task<Void> resultValue =  resultDoc.setValue(currentValue + 1);
-                
-
-                    if (ans == get_user_ans) {
-                        tvResult.setText("Correct");
-                    } else {
-                        tvResult.setText("Incorrect");
-                    }
+                if (ans == get_user_ans) {
+                    tvResult.setText("Correct");
+                } else {
+                    tvResult.setText("Retry");
                 }
-            });
 
-        }
-
-
-
-
+            }
+        });
+    }
 
 
     public void next(View view) {

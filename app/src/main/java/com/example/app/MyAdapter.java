@@ -15,10 +15,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     Context context;
     ArrayList<Result> list;
-    ArrayList<Result> additionList;
 
-    public MyAdapter(Context context, ArrayList<Result> list, ArrayList<Result> additionList) {
-        this.additionList = additionList;
+    public MyAdapter(Context context, ArrayList<Result> list) {
         this.context = context;
         this.list = list;
     }
@@ -37,12 +35,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
         String s = Long.toString(result.getCorrect());
         String f = Long.toString(result.getIncorrect());
-        String w = Long.toString(result.getIncorrectAdd());
-        String n = Long.toString(result.getCorrectAdd());
         holder.incorrect.setText("Incorrect: " + s);
         holder.correct.setText("Correct: " + f);
-        holder.correctAdd.setText("Correct" + w);
-        holder.incorrectAdd.setText("Incorrect" + n);
 
     }
 
@@ -61,10 +55,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            incorrect = itemView.findViewById(R.id.subtractionResultsIncorrect);
-            correct = itemView.findViewById(R.id.subtractionResultsCorrect);
-            incorrectAdd = itemView.findViewById(R.id.additionResultsIncorrect);
-            correctAdd = itemView.findViewById(R.id.additionResultsCorrect);
+            incorrect = itemView.findViewById(R.id.resultsIncorrect);
+            correct = itemView.findViewById(R.id.resultsCorrect);
         }
     }
 }

@@ -30,62 +30,28 @@
                 android:layout_margin="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="User"
+                android:text="You"
                 android:textSize="24sp"
                 android:textColor="#900D09"
                 android:textStyle="bold"/>
 
-            <TextView
-                android:layout_marginLeft="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Addition"
-                android:textColor="@color/white"
-                android:textSize="30sp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/additionResultsIncorrect"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="Incorrect: 2"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:textStyle="bold" />
 
             <TextView
                 android:layout_marginLeft="10dp"
                 android:layout_marginBottom="10dp"
                 android:layout_marginRight="10dp"
-                android:id="@+id/additionResultsCorrect"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Correct: 1"
+                android:text="Answers"
                 android:textColor="@color/white"
-                android:textSize="18sp"
+                android:textSize="25sp"
                 android:textStyle="bold"/>
 
             <TextView
                 android:layout_marginLeft="10dp"
                 android:layout_marginBottom="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Subtraction"
-                android:textColor="@color/white"
-                android:textSize="30sp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:layout_marginLeft="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginRight="10dp"
-                android:id="@+id/subtractionResultsIncorrect"
+                android:id="@+id/resultsIncorrect"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Incorrect: 2"
@@ -97,7 +63,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginBottom="10dp"
                 android:layout_marginRight="10dp"
-                android:id="@+id/subtractionResultsCorrect"
+                android:id="@+id/resultsCorrect"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Correct: 3"

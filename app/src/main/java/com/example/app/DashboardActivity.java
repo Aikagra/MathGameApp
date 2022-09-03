@@ -14,8 +14,8 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class DashboardActivity extends AppCompatActivity {
 
-    TextView addition, subtraction;
-    CardView additionCard, subtractionCard;
+    TextView addition, subtraction, result;
+    CardView additionCard, subtractionCard, correctIncorrect;
     private FirebaseAuth mFirebaseAuth;
 
     @Override
@@ -23,11 +23,22 @@ public class DashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+        correctIncorrect = findViewById(R.id.correctIncorrectCard);
         addition = findViewById(R.id.additionDashboard);
         subtraction = findViewById(R.id.subtractionDashboard);
         additionCard = findViewById(R.id.additionCard);
         subtractionCard = findViewById(R.id.subtractionCard);
         mFirebaseAuth = FirebaseAuth.getInstance();
+        result = findViewById(R.id.result);
+
+        correctIncorrect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DashboardActivity.this, ResultListActivity.class);
+                ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(DashboardActivity.this, result, ViewCompat.getTransitionName(result));
+                startActivity(intent, options.toBundle());
+            }
+        });
 
         additionCard.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,8 +67,4 @@ public class DashboardActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void result(View view) {
-        Intent intent = new Intent(DashboardActivity.this, ResultListActivity.class);
-        startActivity(intent);
-    }
 }

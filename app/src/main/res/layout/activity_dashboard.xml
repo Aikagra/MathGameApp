@@ -45,7 +45,7 @@
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="42dp"
+            android:layout_marginTop="20dp"
             android:gravity="center_horizontal"
             android:orientation="horizontal"
             android:weightSum="2"
@@ -109,7 +109,7 @@
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:gravity="center_horizontal"
             android:orientation="horizontal"
             android:weightSum="2"
@@ -172,7 +172,7 @@
             android:id="@+id/linearLayout3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:gravity="center_horizontal"
             android:orientation="horizontal"
             android:weightSum="2"
@@ -182,7 +182,7 @@
 
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/recordedData"
+                android:id="@+id/correctIncorrectCard"
                 android:layout_width="300dp"
                 android:layout_height="128dp"
                 android:layout_margin="8dp"
@@ -190,7 +190,6 @@
                 android:clickable="true"
                 android:elevation="12dp"
                 android:focusable="true"
-                android:onClick="result"
                 android:foreground="?android:attr/selectableItemBackground"
                 app:cardCornerRadius="8dp">
 
@@ -202,7 +201,8 @@
                         android:id="@+id/leaderboardImage"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_baseline_minimize_24"
+                        android:src="@drawable/ic_check"
+                        app:tint="@color/white"
                         app:layout_constraintBottom_toTopOf="@+id/result"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
@@ -214,11 +214,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Answer Check"
+                        android:text="Corect/Incorrect"
                         android:textAllCaps="true"
                         android:textColor="#FFF"
                         android:textSize="14sp"
                         android:textStyle="bold"
+                        android:transitionName="Correct/Incorrect_Transition"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
@@ -231,12 +232,11 @@
 
         </LinearLayout>
 
-
         <LinearLayout
             android:id="@+id/linearLayout4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:gravity="center_horizontal"
             android:orientation="horizontal"
             android:weightSum="2"
