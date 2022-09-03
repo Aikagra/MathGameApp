@@ -24,16 +24,20 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.item_result, parent, false);
-        return new MyViewHolder(v);
+       View v = LayoutInflater.from(context).inflate(R.layout.item_result, parent, false);
+       return new MyViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         Result result = list.get(position);
-        holder.additionResult.setText(result.getAdditions());
-        holder.subtractionResult.setText(result.getSubtractions());
+
+        String s = Long.toString(result.getCorrect());
+        String f = Long.toString(result.getIncorrect());
+        holder.incorrect.setText("Incorrect: " + s);
+        holder.correct.setText("Correct: " + f);
+
     }
 
     @Override
@@ -43,14 +47,18 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
-
-        TextView subtractionResult, additionResult;
+        TextView incorrect;
+        TextView correct;
+        TextView incorrectAdd;
+        TextView correctAdd;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            subtractionResult = itemView.findViewById(R.id.subtractionResults);
-            additionResult = itemView.findViewById(R.id.additionResults);
+            incorrect = itemView.findViewById(R.id.subtractionResultsIncorrect);
+            correct = itemView.findViewById(R.id.subtractionResultsCorrect);
+            incorrectAdd = itemView.findViewById(R.id.additionResultsIncorrect);
+            correctAdd = itemView.findViewById(R.id.additionResultsCorrect);
         }
     }
 }

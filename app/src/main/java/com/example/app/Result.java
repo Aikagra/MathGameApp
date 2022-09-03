@@ -2,13 +2,23 @@ package com.example.app;
 
 public class Result {
 
-    String additions, subtractions;
+    Long correct, incorrect;
+    Long correctAdd, incorrectAdd;
 
-    public String getAdditions() {
-        return additions;
+
+    public Long getCorrectAdd() {
+        return correctAdd;
     }
 
-    public String getSubtractions() {
-        return subtractions;
+    public Long getIncorrectAdd() {
+        return incorrectAdd;
+    }
+
+    public Long getCorrect() {
+        return correct;
+    }
+
+    public Long getIncorrect() {
+        return incorrect;
     }
 }

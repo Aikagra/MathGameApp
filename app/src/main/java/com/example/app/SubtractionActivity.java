@@ -7,12 +7,14 @@ import androidx.core.view.ViewCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -23,7 +25,8 @@ public class SubtractionActivity extends AppCompatActivity {
     ImageButton backSub;
     TextView subtraction;
     CardView subtractionCard;
-    private FirebaseDatabase db = FirebaseDatabase.getInstance("https://mathgame-25a50-default-rtdb.asia-southeast1.firebasedatabase.app/");
+    private FirebaseDatabase db = FirebaseDatabase
+            .getInstance("https://mathgame-25a50-default-rtdb.asia-southeast1.firebasedatabase.app/");
     private DatabaseReference reference = db.getReference("Results");
 
     @Override
@@ -48,6 +51,7 @@ public class SubtractionActivity extends AppCompatActivity {
         backSub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(SubtractionActivity.this, DashboardActivity.class);
                 ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(SubtractionActivity.this, subtraction, ViewCompat.getTransitionName(subtraction));
                 startActivity(intent, options.toBundle());
@@ -127,18 +131,30 @@ public class SubtractionActivity extends AppCompatActivity {
         int ans = num1 - num2;
         int get_user_ans = Integer.parseInt(tvAns.getText().toString());
 
-        if (ans == get_user_ans){
-            tvResult.setText("Correct!");
-            reference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Subtraction").push().setValue("Correct");
+
+            boolean passed = ans == get_user_ans;
+            DatabaseReference userDoc = reference.child("Subtraction")
+                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+            String key = passed ? "correct" : "incorrect";
+            DatabaseReference resultDoc = userDoc.child(key);
+
+            resultDoc.get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
+                @Override
+                public void onSuccess(DataSnapshot data) {
+                    Long currentValue = data.exists() ? data.getValue(Long.class) : 0L;
+                  Task<Void> resultValue =  resultDoc.setValue(currentValue + 1);
+                
+
+                    if (ans == get_user_ans) {
+                        tvResult.setText("Correct");
+                    } else {
+                        tvResult.setText("Incorrect");
+                    }
+                }
+            });
+
         }
-        else {
-            tvResult.setText("Incorrect!");
-            reference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Subtraction").push().setValue("Incorrect");
-        }
 
-
-
-    }
 
 
 
