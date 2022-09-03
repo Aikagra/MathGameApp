@@ -37,7 +37,7 @@ public class ResultListActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.resultListRecycler);
         db = FirebaseDatabase.getInstance("https://mathgame-25a50-default-rtdb.asia-southeast1.firebasedatabase.app")
-                .getReference("Results").child("Subtraction");
+                .getReference("Results").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         userName = findViewById(R.id.userNameDisplay);
