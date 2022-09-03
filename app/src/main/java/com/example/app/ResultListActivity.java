@@ -24,6 +24,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.shashank.sony.fancytoastlib.FancyToast;
 
 import java.util.ArrayList;
 
@@ -74,9 +75,15 @@ public class ResultListActivity extends AppCompatActivity {
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                     Result result = dataSnapshot.getValue(Result.class);
                     list.add(result);
+                }
+
+                } else {
+                    Toast.makeText(ResultListActivity.this, "Play Some Games", Toast.LENGTH_LONG).show();
+
                 }
 
                 myAdapter.notifyDataSetChanged();
