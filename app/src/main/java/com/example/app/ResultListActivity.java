@@ -18,6 +18,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.textview.MaterialTextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -31,10 +32,10 @@ import java.util.ArrayList;
 public class ResultListActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    DatabaseReference db;
+    DatabaseReference db, db2;
     MyAdapter myAdapter;
     ArrayList<Result> list;
-    TextView userName;
+    MaterialTextView userName;
     private Toolbar toolbar;
     TextView correctIncorrectText;
     ImageButton backToolbar;
@@ -50,9 +51,14 @@ public class ResultListActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.resultListRecycler);
          db = FirebaseDatabase.getInstance("https://mathgame-25a50-default-rtdb.asia-southeast1.firebasedatabase.app")
                 .getReference("Results");
-        recyclerView.setHasFixedSize(true);
+         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        userName = findViewById(R.id.userNameDisplay);
+        userName = findViewById(R.id.userName);
+
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+            linearLayoutManager.setReverseLayout(true);
+            linearLayoutManager.setStackFromEnd(true);
+            recyclerView.setLayoutManager(linearLayoutManager);
 
         backToolbar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,9 +78,11 @@ public class ResultListActivity extends AppCompatActivity {
         myAdapter = new MyAdapter(this, list);
         recyclerView.setAdapter(myAdapter);
 
+
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
                 if (snapshot.exists()){
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                     Result result = dataSnapshot.getValue(Result.class);

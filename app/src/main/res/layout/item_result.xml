@@ -25,12 +25,12 @@
 
 
 
-            <TextView
-                android:id="@+id/userNameDisplay"
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/userName"
                 android:layout_margin="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="You"
+                android:text="Others"
                 android:textSize="24sp"
                 android:textColor="#900D09"
                 android:textStyle="bold"/>
