@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
         int get_user_ans = Integer.parseInt(tvAns.getText().toString());
          if (ans == get_user_ans){
             tvResult.setText("Correct!");
-            reference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Addition").push().setValue("Correct");
+            reference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Addition").setValue("1");
         }
         else {
             tvResult.setText("Incorrect!");

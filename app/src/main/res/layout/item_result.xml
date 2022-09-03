@@ -23,9 +23,11 @@
             android:layout_width="0dp"
             android:layout_height="match_parent">
 
+
+
             <TextView
+                android:id="@+id/userNameDisplay"
                 android:layout_margin="10dp"
-                android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="User"
@@ -37,10 +39,20 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginBottom="10dp"
                 android:layout_marginRight="10dp"
-                android:id="@+id/additionResults"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Addition Results"
+                android:text="Addition"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="10dp"
+                android:id="@+id/additionResultsIncorrect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Incorrect x2"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
@@ -49,10 +61,45 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginBottom="10dp"
                 android:layout_marginRight="10dp"
-                android:id="@+id/subtractionResults"
+                android:id="@+id/additionResultsCorrect"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Subtraction Results"
+                android:text="Correct x2"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Subtraction"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="10dp"
+                android:id="@+id/subtractionResultsIncorrect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Incorrect x2"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="10dp"
+                android:id="@+id/subtractionResultsCorrect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Correct x2"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
