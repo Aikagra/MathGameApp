@@ -133,8 +133,8 @@ public class SubtractionActivity extends AppCompatActivity {
 
 
             boolean passed = ans == get_user_ans;
-            DatabaseReference userDoc = reference.child("Subtraction")
-                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+            DatabaseReference userDoc = reference.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                    .child("Subtraction");
             String key = passed ? "correct" : "incorrect";
             DatabaseReference resultDoc = userDoc.child(key);
 

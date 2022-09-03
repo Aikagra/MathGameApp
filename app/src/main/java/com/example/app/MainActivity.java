@@ -126,8 +126,8 @@ public class MainActivity extends AppCompatActivity {
         int ans = num1 + num2;
         int get_user_ans = Integer.parseInt(tvAns.getText().toString());
         boolean passed = ans == get_user_ans;
-        DatabaseReference userDoc = reference.child("Subtraction")
-                .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        DatabaseReference userDoc = reference.child(FirebaseAuth
+                .getInstance().getCurrentUser().getUid()).child("Addition");
         String key = passed ? "correct" : "incorrect";
         DatabaseReference resultDoc = userDoc.child(key);
 

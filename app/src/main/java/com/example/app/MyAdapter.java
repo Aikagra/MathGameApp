@@ -15,8 +15,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     Context context;
     ArrayList<Result> list;
+    ArrayList<Result> additionList;
 
-    public MyAdapter(Context context, ArrayList<Result> list) {
+    public MyAdapter(Context context, ArrayList<Result> list, ArrayList<Result> additionList) {
+        this.additionList = additionList;
         this.context = context;
         this.list = list;
     }
@@ -35,8 +37,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
         String s = Long.toString(result.getCorrect());
         String f = Long.toString(result.getIncorrect());
+        String w = Long.toString(result.getIncorrectAdd());
+        String n = Long.toString(result.getCorrectAdd());
         holder.incorrect.setText("Incorrect: " + s);
         holder.correct.setText("Correct: " + f);
+        holder.correctAdd.setText("Correct" + w);
+        holder.incorrectAdd.setText("Incorrect" + n);
 
     }
 

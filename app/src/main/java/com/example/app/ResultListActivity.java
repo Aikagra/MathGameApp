@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
@@ -25,7 +26,8 @@ public class ResultListActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     DatabaseReference db;
     MyAdapter myAdapter;
-    ArrayList<Result> list;
+    ArrayList<Result> subtractionList;
+    ArrayList<Result> additionList;
     TextView userName, additionResultCorrect;
 
     @Override
@@ -41,9 +43,10 @@ public class ResultListActivity extends AppCompatActivity {
         userName = findViewById(R.id.userNameDisplay);
         additionResultCorrect = findViewById(R.id.additionResultsCorrect);
 
-        list = new ArrayList<>();
+        subtractionList = new ArrayList<>();
+        additionList = new ArrayList<>();
 
-        myAdapter = new MyAdapter(this, list);
+        myAdapter = new MyAdapter(this, subtractionList, additionList);
         recyclerView.setAdapter(myAdapter);
 
         db.addValueEventListener(new ValueEventListener() {
@@ -51,7 +54,8 @@ public class ResultListActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                     Result result = dataSnapshot.getValue(Result.class);
-                    list.add(result);
+                    subtractionList.add(result);
+                    Log.d(TAG,"data"+ snapshot.getKey());
                 }
 
                 myAdapter.notifyDataSetChanged();
